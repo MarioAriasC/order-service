@@ -5,7 +5,7 @@ custom_build(
     # Command to build the container image
     command = './gradlew bootBuildImage --imageName $EXPECTED_REF',
     # Files to watch that trigger a new build
-    deps = ['build.gradle', 'src']
+    deps = ['build.gradle.kts', 'src']
 )
 
 # Deploy
