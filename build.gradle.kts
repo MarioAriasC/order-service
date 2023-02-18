@@ -17,6 +17,7 @@ repositories {
 }
 
 extra["testcontainersVersion"] = "1.17.6"
+extra["springCloudVersion"] = "2022.0.1"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
@@ -27,6 +28,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+	implementation("org.springframework.cloud:spring-cloud-stream-binder-rabbit")
+	implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 	runtimeOnly("org.postgresql:postgresql")
 	runtimeOnly("org.postgresql:r2dbc-postgresql")
 	runtimeOnly("org.flywaydb:flyway-core")
@@ -38,11 +41,13 @@ dependencies {
 	testImplementation("org.testcontainers:postgresql")
 	testImplementation("org.testcontainers:r2dbc")
 	testImplementation("com.squareup.okhttp3:mockwebserver")
+	testImplementation("org.springframework.cloud:spring-cloud-stream-test-binder")
 }
 
 dependencyManagement {
 	imports {
 		mavenBom("org.testcontainers:testcontainers-bom:${property("testcontainersVersion")}")
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
 	}
 }
 
