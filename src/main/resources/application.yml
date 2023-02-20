@@ -46,7 +46,7 @@ spring:
 
 logging:
   level:
-    org.springframework: debug
+    org.springframework: info
 
 polar:
   catalog-service-uri: "http://localhost:9001"
